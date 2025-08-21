@@ -1,0 +1,80 @@
+[2023-11-04T13:35:30.005+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: traffic_data_etl.load_data_to_logstash manual__2023-11-04T13:10:18.738567+00:00 [queued]>
+[2023-11-04T13:35:30.034+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: traffic_data_etl.load_data_to_logstash manual__2023-11-04T13:10:18.738567+00:00 [queued]>
+[2023-11-04T13:35:30.035+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 2
+[2023-11-04T13:35:30.067+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): load_data_to_logstash> on 2023-11-04 13:10:18.738567+00:00
+[2023-11-04T13:35:30.078+0000] {standard_task_runner.py:57} INFO - Started process 100 to run task
+[2023-11-04T13:35:30.083+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'traffic_data_etl', 'load_data_to_logstash', 'manual__2023-11-04T13:10:18.738567+00:00', '--job-id', '308', '--raw', '--subdir', 'DAGS_FOLDER/script.py', '--cfg-path', '/tmp/tmp829o4h16']
+[2023-11-04T13:35:30.085+0000] {standard_task_runner.py:85} INFO - Job 308: Subtask load_data_to_logstash
+[2023-11-04T13:35:30.180+0000] {task_command.py:416} INFO - Running <TaskInstance: traffic_data_etl.load_data_to_logstash manual__2023-11-04T13:10:18.738567+00:00 [running]> on host b9e2239f59f9
+[2023-11-04T13:35:30.337+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='traffic_data_etl' AIRFLOW_CTX_TASK_ID='load_data_to_logstash' AIRFLOW_CTX_EXECUTION_DATE='2023-11-04T13:10:18.738567+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-11-04T13:10:18.738567+00:00'
+[2023-11-04T13:35:30.359+0000] {logging_mixin.py:151} INFO - {'message': '{"sourceUpdated": "2023-11-04T13:32:03Z", "results": [{"location": {"description": "Jalan Amal", "length": 1302.0, "olr": "CCkBEAAlJEYfnQKK2gAJBQQAAg0ACgUEAIoSAAEPA+0ACQUEAAJlADAAAA=="}, "currentFlow": {"speed": 11.111112, "speedUncapped": 11.111112, "freeFlow": 11.388889, "jamFactor": 0.3, "confidence": 0.7, "traversability": "open"}}, {"location": {"description": "Jalan Sekolah Pembangunan", "length": 999.0, "olr": "CCkBEAAlJEYggAKIoQAJBQQAAvYACgUEAIgwAP3FAsEACQUEAAJXADAATA=="}, "currentFlow": {"speed": 9.444445, "speedUncapped": 9.444445, "freeFlow": 10.0, "jamFactor": 0.9, "confidence": 0.7, "traversability": "open"}}, {"location": {"description": "Jalan Rajawali", "length": 759.0, "olr": "CCkBEAAlJEYiagKLawAJBQQDAzYACgUEA4V3AAKeAIUACQUEAwO4ADAAAA=="}, "currentFlow": {"speed": 9.444445, "speedUncapped": 9.444445, "freeFlow": 10.277778, "jamFactor": 0.6, "confidence": 0.7, "traversability": "open"}}, {"location": {"description": "Jalan Sunggal", "length": 1370.0, "olr": "CCkBEAAlJEYgHwKMsAAJBQQAAmUACgUEAIpWAP7g+9gACQUEAAILADAAAA=="}, "currentFlow": {"speed": 10.833334, "speedUncapped": 10.833334, "freeFlow": 11.388889, "jamFactor": 0.5, "confidence": 0.7, "traversability": "open"}}, {"location": {"description": "Jalan Pinang Baris/Jalan Pam Tirtanadi Sunggal", "length": 1765.0, "olr": "CCkBEAAlJEYiagKLawAJBQQDA7cACgUEA41nAPn1/pEACQUEAwM/ADAAAA=="}, "currentFlow": {"speed": 10.0, "speedUncapped": 10.0, "freeFlow": 10.555556, "jamFactor": 0.4, "confidence": 0.7, "traversability": "open"}}, {"location": {"description": "Jalan Sunggal", "length": 1750.0, "olr": "CCkBEAAlJEYiUQKIjgAJBQQAAgAACgUEAI1PAAArBiQACQUEAAKEADAAAA=="}, "currentFlow": {"speed": 8.055555, "speedUncapped": 8.055555, "freeFlow": 12.222222, "jamFactor": 2.5, "confidence": 0.78, "traversability": "open"}}, {"location": {"description": "Jalan Sunggal", "length": 24.0, "olr": "CCkBEAAlJEYiZQKLagAJBQQAAgEACgUEAIEPAAAGAIEACQUEAAKCADAAdw=="}, "currentFlow": {"speed": 6.388889, "speedUncapped": 6.388889, "freeFlow": 9.444445, "jamFactor": 2.2, "confidence": 0.73, "traversability": "open"}}, {"location": {"description": "Jalan Gagak Hitam/Jalan Ring Road", "length": 1736.0, "olr": "CCkBEAAlJEYfmQKKwAAJBQQDAz8ACgUEA41nAAYLAW8ACQUEAwO3ADAdAA=="}, "currentFlow": {"speed": 10.555556, "speedUncapped": 10.555556, "freeFlow": 11.111112, "jamFactor": 0.4, "confidence": 0.7, "traversability": "open"}}, {"location": {"description": "Jalan Gagak Hitam", "length": 627.0, "olr": "CCkBEAAlJEYhdwKMugAJBQQDA0UACgUEA4RzAAIu/7wACQUEAwPEADAAAA=="}, "currentFlow": {"speed": 7.5, "speedUncapped": 7.5, "freeFlow": 10.0, "jamFactor": 1.5, "confidence": 0.71, "traversability": "open"}}, {"location": {"description": "Jalan Amal/Jalan Merak", "length": 704.0, "olr": "CCkBEAAlJEYiZQKLagAJBQQAAgEACgUEAIVXAAAlAo4ACQUEAAKEADAYAA=="}, "currentFlow": {"speed": 11.388889, "speedUncapped": 11.388889, "freeFlow": 11.388889, "jamFactor": 0.0, "confidence": 0.73, "traversability": "open"}}, {"location": {"description": "Jalan Bunga Asoka", "length": 1704.0, "olr": "CCkBEAAlJEYiaQKLYwAJBQQAAoEACgUEAI06AP/X+ewACQUEAAIAADAZAA=="}, "currentFlow": {"speed": 5.277778, "speedUncapped": 5.277778, "freeFlow": 11.944445, "jamFactor": 8.1, "confidence": 0.91, "traversability": "open", "subSegments": [{"length": 399.0, "speed": 7.5, "speedUncapped": 7.5, "freeFlow": 11.388889, "jamFactor": 3.1, "confidence": 0.91, "traversability": "open"}, {"length": 106.0, "speed": 3.3333335, "speedUncapped": 3.3333335, "freeFlow": 13.888889, "jamFactor": 8.8, "confidence": 0.91, "traversability": "open"}, {"length": 133.0, "speed": 5.0, "speedUncapped": 5.0, "freeFlow": 11.111112, "jamFactor": 6.6, "confidence": 0.91, "traversability": "open"}, {"length": 255.0, "speed": 6.666667, "speedUncapped": 6.666667, "freeFlow": 11.111112, "jamFactor": 3.7, "confidence": 0.91, "traversability": "open"}, {"length": 214.0, "speed": 6.666667, "speedUncapped": 6.666667, "freeFlow": 13.888889, "jamFactor": 5.8, "confidence": 0.91, "traversability": "open"}, {"length": 101.0, "speed": 7.2222223, "speedUncapped": 7.2222223, "freeFlow": 12.5, "jamFactor": 3.8, "confidence": 0.91, "traversability": "open"}, {"length": 204.0, "speed": 5.277778, "speedUncapped": 5.277778, "freeFlow": 13.333334, "jamFactor": 8.0, "confidence": 0.91, "traversability": "open"}, {"length": 114.0, "speed": 7.777778, "speedUncapped": 7.777778, "freeFlow": 13.333334, "jamFactor": 3.8, "confidence": 0.91, "traversability": "open"}, {"length": 175.0, "speed": 2.5, "speedUncapped": 2.5, "freeFlow": 10.833334, "jamFactor": 7.1, "confidence": 0.91, "traversability": "open"}]}}, {"location": {"description": "Jalan Gagak Hitam/Jalan Ring Road", "length": 759.0, "olr": "CCkBEAAlJEYjogKLqQAJBQQDA7gACgUEA4V3AP1i/3sACQUEAwM2ADAAAA=="}, "currentFlow": {"speed": 8.888889, "speedUncapped": 8.888889, "freeFlow": 10.0, "jamFactor": 0.9, "confidence": 0.7, "traversability": "open"}}, {"location": {"description": "Jalan Patriot", "length": 570.0, "olr": "CCkBEAAlJEYidgKMmwAJBQQDA8YACgUEA4RoAP3bAEMACQUEAwNFADAuAA=="}, "currentFlow": {"speed": 6.666667, "speedUncapped": 6.666667, "freeFlow": 11.388889, "jamFactor": 3.0, "confidence": 0.77, "traversability": "open"}}, {"location": {"description": "Jalan Sunggal", "length": 46.0, "olr": "CCgBEAAkI0YiagKLawAJBQQAAoUACgQDAEMA//v/wwAJBQQAAgMAMAAW"}, "currentFlow": {"speed": 1.9444445, "speedUncapped": 1.9444445, "freeFlow": 13.888889, "jamFactor": 2.7, "confidence": 0.88, "traversability": "open"}}, {"location": {"description": "Jalan Sunggal", "length": 725.0, "olr": "CCkBEAAlJEYiewKMmwAJBQQAAoIACgUEAIVSAP/b/XUACQUEAAIBADAAAA=="}, "currentFlow": {"speed": 6.111111, "speedUncapped": 6.111111, "freeFlow": 11.388889, "jamFactor": 4.7, "confidence": 0.82, "traversability": "open", "subSegments": [{"length": 472.0, "speed": 7.2222223, "speedUncapped": 7.2222223, "freeFlow": 11.388889, "jamFactor": 3.3, "confidence": 0.82, "traversability": "open"}, {"length": 253.0, "speed": 4.4444447, "speedUncapped": 4.4444447, "freeFlow": 11.388889, "jamFactor": 5.1, "confidence": 0.82, "traversability": "open"}]}}, {"location": {"description": "Jalan Bunga Asoka", "length": 954.0, "olr": "CCkBEAAlJEYfpQKJzgAJBQQAAloACgUEAIc4AAHe/XsACQUEAAL2ADAAAA=="}, "currentFlow": {"speed": 10.0, "speedUncapped": 10.0, "freeFlow": 10.555556, "jamFactor": 0.8, "confidence": 0.7, "traversability": "open"}}]}'}
+[2023-11-04T13:35:38.485+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/usr/local/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 714, in urlopen
+    httplib_response = self._make_request(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 415, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connection.py", line 244, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/usr/local/lib/python3.8/http/client.py", line 1256, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.8/http/client.py", line 1302, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.8/http/client.py", line 1251, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.8/http/client.py", line 1011, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.8/http/client.py", line 951, in send
+    self.connect()
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f1f1be96700>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 798, in urlopen
+    retries = retries.increment(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='logstash', port=5044): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f1f1be96700>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/script.py", line 42, in load_data_to_logstash
+    post_response = requests.post(logstash_url, json=data)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='logstash', port=5044): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f1f1be96700>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+[2023-11-04T13:35:38.640+0000] {taskinstance.py:1400} INFO - Marking task as UP_FOR_RETRY. dag_id=traffic_data_etl, task_id=load_data_to_logstash, execution_date=20231104T131018, start_date=20231104T133530, end_date=20231104T133538
+[2023-11-04T13:35:38.745+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 308 for task load_data_to_logstash (HTTPConnectionPool(host='logstash', port=5044): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f1f1be96700>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution')); 100)
+[2023-11-04T13:35:38.832+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2023-11-04T13:35:38.889+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

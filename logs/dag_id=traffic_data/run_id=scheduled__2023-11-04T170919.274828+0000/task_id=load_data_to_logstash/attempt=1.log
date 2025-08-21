@@ -1,0 +1,79 @@
+[2023-11-04T17:10:28.995+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: traffic_data.load_data_to_logstash scheduled__2023-11-04T17:09:19.274828+00:00 [queued]>
+[2023-11-04T17:10:29.023+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: traffic_data.load_data_to_logstash scheduled__2023-11-04T17:09:19.274828+00:00 [queued]>
+[2023-11-04T17:10:29.024+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 2
+[2023-11-04T17:10:29.064+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): load_data_to_logstash> on 2023-11-04 17:09:19.274828+00:00
+[2023-11-04T17:10:29.076+0000] {standard_task_runner.py:57} INFO - Started process 2837 to run task
+[2023-11-04T17:10:29.082+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'traffic_data', 'load_data_to_logstash', 'scheduled__2023-11-04T17:09:19.274828+00:00', '--job-id', '804', '--raw', '--subdir', 'DAGS_FOLDER/script2.py', '--cfg-path', '/tmp/tmp1g3femkn']
+[2023-11-04T17:10:29.084+0000] {standard_task_runner.py:85} INFO - Job 804: Subtask load_data_to_logstash
+[2023-11-04T17:10:29.228+0000] {task_command.py:416} INFO - Running <TaskInstance: traffic_data.load_data_to_logstash scheduled__2023-11-04T17:09:19.274828+00:00 [running]> on host 0616bbdaf328
+[2023-11-04T17:10:29.519+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='traffic_data' AIRFLOW_CTX_TASK_ID='load_data_to_logstash' AIRFLOW_CTX_EXECUTION_DATE='2023-11-04T17:09:19.274828+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-11-04T17:09:19.274828+00:00'
+[2023-11-04T17:10:37.553+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/usr/local/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 714, in urlopen
+    httplib_response = self._make_request(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 415, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connection.py", line 244, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/usr/local/lib/python3.8/http/client.py", line 1256, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.8/http/client.py", line 1302, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.8/http/client.py", line 1251, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.8/http/client.py", line 1011, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.8/http/client.py", line 951, in send
+    self.connect()
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7ff056fa4910>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 798, in urlopen
+    retries = retries.increment(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='logstash', port=5044): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff056fa4910>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/script2.py", line 42, in load_data_to_logstash
+    post_response = requests.post(logstash_url, json=data)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='logstash', port=5044): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff056fa4910>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+[2023-11-04T17:10:37.586+0000] {taskinstance.py:1400} INFO - Marking task as UP_FOR_RETRY. dag_id=traffic_data, task_id=load_data_to_logstash, execution_date=20231104T170919, start_date=20231104T171028, end_date=20231104T171037
+[2023-11-04T17:10:37.622+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 804 for task load_data_to_logstash (HTTPConnectionPool(host='logstash', port=5044): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7ff056fa4910>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution')); 2837)
+[2023-11-04T17:10:37.675+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2023-11-04T17:10:37.719+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

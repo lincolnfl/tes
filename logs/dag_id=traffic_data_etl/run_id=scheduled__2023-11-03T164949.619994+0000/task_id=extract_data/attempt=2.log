@@ -1,0 +1,76 @@
+[2023-11-03T16:51:52.426+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: traffic_data_etl.extract_data scheduled__2023-11-03T16:49:49.619994+00:00 [queued]>
+[2023-11-03T16:51:52.444+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: traffic_data_etl.extract_data scheduled__2023-11-03T16:49:49.619994+00:00 [queued]>
+[2023-11-03T16:51:52.445+0000] {taskinstance.py:1361} INFO - Starting attempt 2 of 2
+[2023-11-03T16:51:52.466+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): extract_data> on 2023-11-03 16:49:49.619994+00:00
+[2023-11-03T16:51:52.476+0000] {standard_task_runner.py:57} INFO - Started process 1213 to run task
+[2023-11-03T16:51:52.480+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'traffic_data_etl', 'extract_data', 'scheduled__2023-11-03T16:49:49.619994+00:00', '--job-id', '113', '--raw', '--subdir', 'DAGS_FOLDER/script.py', '--cfg-path', '/tmp/tmpyzeqf7zy']
+[2023-11-03T16:51:52.482+0000] {standard_task_runner.py:85} INFO - Job 113: Subtask extract_data
+[2023-11-03T16:51:52.556+0000] {task_command.py:416} INFO - Running <TaskInstance: traffic_data_etl.extract_data scheduled__2023-11-03T16:49:49.619994+00:00 [running]> on host e99d93717981
+[2023-11-03T16:51:52.698+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='traffic_data_etl' AIRFLOW_CTX_TASK_ID='extract_data' AIRFLOW_CTX_EXECUTION_DATE='2023-11-03T16:49:49.619994+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-11-03T16:49:49.619994+00:00'
+[2023-11-03T16:51:52.713+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/util/connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/usr/local/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 714, in urlopen
+    httplib_response = self._make_request(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 403, in _make_request
+    self._validate_conn(conn)
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 1053, in _validate_conn
+    conn.connect()
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connection.py", line 363, in connect
+    self.sock = conn = self._new_conn()
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7f244c7d9c10>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/connectionpool.py", line 798, in urlopen
+    retries = retries.increment(
+  File "/home/airflow/.local/lib/python3.8/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='data.traffic.hereapi.com', port=443): Max retries exceeded with url: /v7/flow?in=circle:3.575953,98.621565;r=1000&locationReferencing=olr&apiKey=xZRysV5GhtBQn8FNB_ddUzuiWJd6YYNsQUuIJE9D498 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f244c7d9c10>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/airflow/dags/script.py", line 22, in extract_data
+    response = requests.get("https://data.traffic.hereapi.com/v7/flow?in=circle:3.575953,98.621565;r=1000&locationReferencing=olr&apiKey=" + api_key)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='data.traffic.hereapi.com', port=443): Max retries exceeded with url: /v7/flow?in=circle:3.575953,98.621565;r=1000&locationReferencing=olr&apiKey=xZRysV5GhtBQn8FNB_ddUzuiWJd6YYNsQUuIJE9D498 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f244c7d9c10>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/script.py", line 29, in extract_data
+    raise Exception(f"An error occurred: {str(e)}")
+Exception: An error occurred: HTTPSConnectionPool(host='data.traffic.hereapi.com', port=443): Max retries exceeded with url: /v7/flow?in=circle:3.575953,98.621565;r=1000&locationReferencing=olr&apiKey=xZRysV5GhtBQn8FNB_ddUzuiWJd6YYNsQUuIJE9D498 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f244c7d9c10>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution'))
+[2023-11-03T16:51:52.733+0000] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=traffic_data_etl, task_id=extract_data, execution_date=20231103T164949, start_date=20231103T165152, end_date=20231103T165152
+[2023-11-03T16:51:52.759+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 113 for task extract_data (An error occurred: HTTPSConnectionPool(host='data.traffic.hereapi.com', port=443): Max retries exceeded with url: /v7/flow?in=circle:3.575953,98.621565;r=1000&locationReferencing=olr&apiKey=xZRysV5GhtBQn8FNB_ddUzuiWJd6YYNsQUuIJE9D498 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f244c7d9c10>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution')); 1213)
+[2023-11-03T16:51:52.814+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2023-11-03T16:51:52.849+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check
